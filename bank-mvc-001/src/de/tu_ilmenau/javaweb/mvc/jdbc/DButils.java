@@ -1,4 +1,4 @@
-package de.tu_ilmenau.javaweb.mvc.utils;
+package de.tu_ilmenau.javaweb.mvc.jdbc;
 
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
  */
 public class DButils {
     // 获取bundle
-    private static ResourceBundle bundle = ResourceBundle.getBundle("resources/jdbc");
+    private static ResourceBundle bundle = ResourceBundle.getBundle("resources.jdbc");
     // 获取url
     private static String url = bundle.getString("url");
     // 获取DB用户名
@@ -22,17 +22,32 @@ public class DButils {
     static {
         // 注册驱动
         try {
-            Class.forName("driver");
+            // 这里直接写变量名
+            Class.forName(driver);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
+
+
+
+    /**
+     * 获取连接Connection
+     * @return
+     * @throws SQLException
+     */
     public static Connection getConnetcion() throws SQLException {
         Connection conn = DriverManager.getConnection(url,username,password);
         return conn;
     }
 
+    /**
+     * 关闭通道
+     * @param conn
+     * @param ps
+     * @param rs
+     */
     public static void clear(Connection conn, PreparedStatement ps, ResultSet rs) {
         if (rs != null) {
             try {
