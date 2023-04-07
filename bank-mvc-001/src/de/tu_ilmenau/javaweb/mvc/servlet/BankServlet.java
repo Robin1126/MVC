@@ -19,6 +19,7 @@ import java.sql.SQLException;
 /**
  * Author : Binbin Luo
  * Date : 07.04.2023
+ * MVC就是为了提高耦合度，提高扩展力，让不同的部分各司其职，互相调用
  */
 @WebServlet("/transfer")
 public class BankServlet extends HttpServlet {
@@ -42,6 +43,7 @@ public class BankServlet extends HttpServlet {
         ResultSet rs = null;
         int count = 0;
 
+
         try {
             conn = DButils.getConnetcion();
             String sql = "select balance from t_mvc where actno = ?";
@@ -58,6 +60,8 @@ public class BankServlet extends HttpServlet {
             // 如果程序能执行到这里，证明余额充足
             // 执行转账操作
             // act1减去10000，act2增加10000
+            conn.setAutoCommit(false);
+
             String sql1 = "update t_mvc set balance = balance - ? where actno = ? ";
             ps1 = conn.prepareStatement(sql1);
             ps1.setDouble(1,money);
@@ -70,15 +74,26 @@ public class BankServlet extends HttpServlet {
             ps2.setString(2,toAct);
             count += ps2.executeUpdate();
 
+
             if (count != 2) {
                 throw new TransferFailException("转账失败！");
             }else {
+                // 手动提交业务
+                conn.commit();
+                // 完成转账，显示成功
                 out.print("转账成功！");
             }
+
 
         } catch (Exception e) {
             // 在浏览器直接显示异常信息
             out.print(e.getMessage());
+            // 出现异常，回滚事务
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                e.printStackTrace();
+            }
         } finally {
             DButils.clear(conn,ps,rs);
             if (ps1 != null) {
