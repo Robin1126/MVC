@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MVC.iml" filepath="$PROJECT_DIR$/MVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/bank-mvc-001/bank-mvc-001.iml" filepath="$PROJECT_DIR$/bank-mvc-001/bank-mvc-001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bank-mvc-002/bank-mvc-002.iml" filepath="$PROJECT_DIR$/bank-mvc-002/bank-mvc-002.iml" />
     </modules>
   </component>
 </project>

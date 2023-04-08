@@ -1,68 +1,60 @@
-package de.tu_ilmenau.javaweb.mvc.jdbc;
+package de.tu_ilmenau.javaweb.mvc.utils;
 
 import java.sql.*;
 import java.util.ResourceBundle;
 
 /**
  * Author : Binbin Luo
- * Date : 07.04.2023
+ * Date : 08.04.2023
+ * JDBC工具类
+ *
  */
-public class DButils {
-    // 获取bundle
-    private static ResourceBundle bundle = ResourceBundle.getBundle("resources.jdbc");
-    // 获取url
+public class DBUtils {
+    // 私有化构造方法
+    private DBUtils() {}
+    // 获取Bundle
+    private static ResourceBundle bundle = ResourceBundle.getBundle("resources.info");
+    // 导入driver
+    private static String  driver = bundle.getString("driver");
+    // 导入url
     private static String url = bundle.getString("url");
-    // 获取DB用户名
+    // 导入username
     private static String username = bundle.getString("username");
-    // 获取DB用户密码
+    // 导入password
     private static String password = bundle.getString("password");
-    // 获取DB驱动
-    private static String driver = bundle.getString("driver");
 
+    // static 代码块 注册驱动
     static {
-        // 注册驱动
         try {
-            // 这里直接写变量名
             Class.forName(driver);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-
-
-
-    /**
-     * 获取连接Connection
-     * @return
-     * @throws SQLException
-     */
-    public static Connection getConnetcion() throws SQLException {
-        return(DriverManager.getConnection(url,username,password));
-
+    // 构造Connection方法
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(url,username,password);
     }
 
-    /**
-     * 关闭通道
-     * @param conn
-     * @param ps
-     * @param rs
-     */
-    public static void clear(Connection conn, PreparedStatement ps, ResultSet rs) {
+    // 构造close方法
+    public static void close(Connection conn, PreparedStatement ps, ResultSet rs) {
         if (rs != null) {
             try {
-                conn.close();
+                rs.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+
         if (ps != null) {
             try {
-                conn.close();
+                ps.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+
         if (conn != null) {
             try {
                 conn.close();
@@ -70,6 +62,6 @@ public class DButils {
                 e.printStackTrace();
             }
         }
-
     }
+
 }
