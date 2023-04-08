@@ -10,6 +10,7 @@ import de.tu_ilmenau.javaweb.mvc.exceptions.NotEnoughMoneyException;
  * 在这里专注处理业务，不和其它代码混合在一起
  *
  * 一般起名 XxxService， XxxBiz
+ * 事务一定是在service当中控制的
  */
 public class AccountService {
 
