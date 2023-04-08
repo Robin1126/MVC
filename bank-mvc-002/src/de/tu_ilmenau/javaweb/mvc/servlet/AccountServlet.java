@@ -16,6 +16,7 @@ import java.io.IOException;
  */
 @WebServlet("/transfer")
 public class AccountServlet extends HttpServlet {
+    // Controller 负责调度
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

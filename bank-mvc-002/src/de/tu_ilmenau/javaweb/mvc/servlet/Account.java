@@ -6,8 +6,13 @@ package de.tu_ilmenau.javaweb.mvc.servlet;
  */
 public class Account {
     // 一般使用包装类，防止出现null异常
+    // 普通简单的对象被称为pojo对象 plain Ordinary Java Object， 也叫做Java Bean
+
+    // 主键
     private Long id;
+    // AccountNumber
     private String actno;
+    // 余额balance
     private Double balance;
 
     @Override
