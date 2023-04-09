@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/bank-mvc-003/bank-mvc-003.iml" filepath="$PROJECT_DIR$/bank-mvc-003/bank-mvc-003.iml" />
       <module fileurl="file://$PROJECT_DIR$/bank-mvc-004/bank-mvc-004.iml" filepath="$PROJECT_DIR$/bank-mvc-004/bank-mvc-004.iml" />
       <module fileurl="file://$PROJECT_DIR$/bank-mvc-005/bank-mvc-005.iml" filepath="$PROJECT_DIR$/bank-mvc-005/bank-mvc-005.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bank-mvc-final/bank-mvc-final.iml" filepath="$PROJECT_DIR$/bank-mvc-final/bank-mvc-final.iml" />
       <module fileurl="file://$PROJECT_DIR$/threadlocal/threadlocal.iml" filepath="$PROJECT_DIR$/threadlocal/threadlocal.iml" />
     </modules>
   </component>

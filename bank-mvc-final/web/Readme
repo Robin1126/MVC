@@ -1,0 +1,6 @@
+目前存在的缺陷：
+1. 在service层控制了事务，但是事务控制的代码写得不理想，以后可以不写？
+   在service中使用了JDBC，可以使用动态代理解决
+
+2. 程序有部分仍然耦合度较高，比如AccountServlet中new AccountServiceImpl 仍然具有较高的耦合度，换部件的时候仍然要重写代码编译
+   考虑使用spring的IoC容器来解决，用来新建对象和对象之间的管理
