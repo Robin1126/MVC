@@ -1,8 +1,11 @@
-package de.tu_ilmenau.javaweb.mvc.servlet;
+package de.tu_ilmenau.bank.service;
 
-import de.tu_ilmenau.javaweb.mvc.exceptions.AppException;
-import de.tu_ilmenau.javaweb.mvc.exceptions.NotEnoughMoneyException;
-import de.tu_ilmenau.javaweb.mvc.utils.DBUtils;
+import de.tu_ilmenau.bank.dao.AccountDao;
+import de.tu_ilmenau.bank.exceptions.AppException;
+import de.tu_ilmenau.bank.exceptions.NotEnoughMoneyException;
+import de.tu_ilmenau.bank.pojo.Account;
+import de.tu_ilmenau.bank.utils.DBUtils;
+
 
 import java.sql.Connection;
 import java.sql.SQLException;

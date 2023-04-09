@@ -1,7 +1,9 @@
-package de.tu_ilmenau.javaweb.mvc.servlet;
+package de.tu_ilmenau.bank.web;
 
-import de.tu_ilmenau.javaweb.mvc.exceptions.AppException;
-import de.tu_ilmenau.javaweb.mvc.exceptions.NotEnoughMoneyException;
+import de.tu_ilmenau.bank.exceptions.AppException;
+import de.tu_ilmenau.bank.exceptions.NotEnoughMoneyException;
+import de.tu_ilmenau.bank.service.AccountService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,6 +19,10 @@ import java.io.PrintWriter;
  * @version 2.0
  * @since 2.0
  * 这个java程序是司令官，负责调度和展示页面
+ *
+ * MVC架构有 表示层/web层/表现层
+ * 中间 业务逻辑层
+ * 底层 持久化层
  */
 @WebServlet("/transfer")
 public class AccountServlet extends HttpServlet {
